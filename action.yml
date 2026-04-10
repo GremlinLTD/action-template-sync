@@ -1,0 +1,30 @@
+name: Template Sync
+description: Sync files from a parent template repository via PR
+
+inputs:
+  template-repo:
+    description: "Parent template repo (e.g., gremlinltd/template-rust)"
+    required: true
+  template-ref:
+    description: "Branch or tag to sync from"
+    required: false
+    default: "main"
+  pr-label:
+    description: "Label for sync PRs"
+    required: false
+    default: "template-sync"
+  token:
+    description: "GitHub token with contents:write and pull-requests:write"
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Sync template files
+      shell: bash
+      env:
+        TEMPLATE_REPO: ${{ inputs.template-repo }}
+        TEMPLATE_REF: ${{ inputs.template-ref }}
+        PR_LABEL: ${{ inputs.pr-label }}
+        GH_TOKEN: ${{ inputs.token }}
+      run: "${{ github.action_path }}/scripts/sync.sh"

@@ -1,0 +1,6 @@
+files:
+  - CONTRIBUTING.md
+  - SECURITY.md
+  - LICENSE
+  - .github/workflows/stale-prs.yml
+  - .github/ISSUE_TEMPLATE/bug_report.yml

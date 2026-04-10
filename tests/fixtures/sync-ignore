@@ -1,0 +1,6 @@
+# Files intentionally customized in this repo
+CONTRIBUTING.md
+
+# Blank lines and comments should be ignored
+
+.github/ISSUE_TEMPLATE/bug_report.yml
